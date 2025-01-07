@@ -2,7 +2,7 @@ resource "aws_launch_template" "web_server_as" {
     name = "myproject"
     image_id           = "ami-0ddc798b3f1a5117e"
     instance_type = "t2.micro"
-    key_name = "FLM-Keypair"
+    key_name = "FLM-KEYPAIR"
     
 }
    
