@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "dastagiri.kops.flm"
+  bucket = "dastagiri1.kops.flm"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {
@@ -26,7 +26,7 @@ status = "Enabled"
 terraform {
 backend "s3" {
 region = "us-east-1"
-bucket = "dastagiri.kops.flm"
+bucket = "dastagiri1.kops.flm"
 key = "prod/terraform.tfstate"
 }
 }
