@@ -1,6 +1,6 @@
 resource "aws_launch_template" "web_server_as" {
     name = "myproject"
-    image_id           = "ami-0ddc798b3f1a5117e"
+    image_id           = "ami-0ca9fb66e076a6e32"
     instance_type = "t2.micro"
     key_name = "FLM-KEYPAIR"
     
@@ -11,7 +11,7 @@ resource "aws_launch_template" "web_server_as" {
   resource "aws_elb" "web_server_lb"{
      name = "web-server-lb"
      security_groups = [aws_security_group.web_server.id]
-     subnets = ["subnet-0883b34c988bcbf20", "subnet-0f4f4322d734fcc38"]
+     subnets = ["subnet-078f43781cd735934", "subnet-0097995646385497a"]
      listener {
       instance_port     = 8000
       instance_protocol = "http"
@@ -29,7 +29,7 @@ resource "aws_autoscaling_group" "web_server_asg" {
     desired_capacity     = 2
     health_check_type    = "EC2"
     load_balancers       = [aws_elb.web_server_lb.name]
-    availability_zones    = ["us-east-1a", "us-east-1b"] 
+    availability_zones    = ["us-east-1f", "us-east-1e"] 
     launch_template {
         id      = aws_launch_template.web_server_as.id
         version = "$Latest"
